@@ -14,8 +14,8 @@ export default function FormSubscription() {
   async function handleSubscribe(e) {
     e.preventDefault();
 
-    try {
-      const response = await axios.post(
+    await axios
+      .post(
         'https://us3.api.mailchimp.com/3.0/lists/9315233bb3/members',
         {
           email_address: email,
@@ -27,19 +27,18 @@ export default function FormSubscription() {
             password: '94b6cbb6aa51e7afb5b7c695d3eccccc-us3',
           },
         }
-      );
-
-      console.log(response.data);
-
-      setAlert(true);
-      setEmail('');
-      setInterval(() => {
-        setAlert(false);
-      }, 3000);
-
-    } catch (err) {
-      console.log(err);
-    }
+      )
+      .then(response => {
+        console.log(response);
+        setAlert(true);
+        setEmail('');
+        setInterval(() => {
+          setAlert(false);
+        }, 3000);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   return (
