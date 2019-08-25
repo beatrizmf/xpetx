@@ -36,6 +36,7 @@ export default function FormSubscription() {
       setInterval(() => {
         setAlert(false);
       }, 3000);
+
     } catch (err) {
       console.log(err);
     }
