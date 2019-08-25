@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@ const Container = styled.div`
     color: #494949;
     background: #f8f8f2;
     text-align: center;
-    width: 50%;
+    width: 60%;
     padding: 30px;
     border-radius: 20px;
   }
@@ -53,7 +53,7 @@ const Container = styled.div`
     opacity: 1;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 1000px) {
     section {
       width: 90%;
     }
