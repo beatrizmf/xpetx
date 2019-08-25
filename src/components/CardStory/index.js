@@ -19,7 +19,7 @@ export default function CardStory() {
       <p>
         Por isso eu vim aqui anunciar para meus amigos cachorros essa solução,
         que é o mais novo site de busca amorosa para cães, se você tem esse
-        problema você poderá cadastrar seu email e ficar por dentro das
+        problema você poderá cadastrar seu e-mail, ficar por dentro das
         novidades e conhecer melhor essa ideia incrível! <FaQuoteRight />
       </p>
     </Container>

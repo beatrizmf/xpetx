@@ -5,6 +5,7 @@ import Alert from '../Alert/styles';
 
 export default function FormSubscription() {
   const [email, setEmail] = useState([]);
+  const [showAlert, setshowAlert] = useState(false);
   const [alert, setAlert] = useState(false);
 
   function handleInputChange(e) {
@@ -26,50 +27,64 @@ export default function FormSubscription() {
             username: 'anystring',
             password: '94b6cbb6aa51e7afb5b7c695d3eccccc-us3',
           },
+          headers: { 'content-type': 'application/json' },
         }
       )
       .then(response => {
-        console.log(response);
         setAlert(true);
         setEmail('');
-        setInterval(() => {
-          setAlert(false);
-        }, 3000);
+        console.log(response);
       })
       .catch(err => {
         console.log(err);
+        setAlert(false);
+      })
+      .finally(() => {
+        setshowAlert(true);
+        setInterval(() => {
+          setshowAlert(false);
+        }, 5000);
       });
   }
 
   return (
     <Container>
-      {!alert ? (
-        <section>
-          <h2>
-            Deixe o seu melhor e-mail aqui{' '}
-            <span role="img" aria-label="Mão apontando para baixo">
-              👇
-            </span>
-            <br />
-            para receber mais informações.
-          </h2>
-          <form onSubmit={handleSubscribe}>
-            <input
-              required
-              type="email"
-              placeholder="tinoco@email.com"
-              value={email}
-              onChange={handleInputChange}
-            />
-            <br />
-            <button type="submit">Ok!</button>
-          </form>
-        </section>
+      {// eslint-disable-next-line no-nested-ternary
+      showAlert ? (
+        alert ? (
+          <Alert background="#28a745" color="#f8f8f2">
+            <p>Obrigado!</p>
+          </Alert>
+        ) : (
+          <Alert background="#dc3545" color="#f8f8f2">
+            <p>Algo deu errado! Tente novamente dentro de alguns instantes. </p>
+          </Alert>
+        )
       ) : (
-        <Alert background="#28a745" color="#f8f8f2">
-          <p>Obrigado!</p>
-        </Alert>
+        ''
       )}
+
+      <section>
+        <h2>
+          Deixe o seu melhor e-mail aqui{' '}
+          <span role="img" aria-label="Mão apontando para baixo">
+            👇
+          </span>
+          <br />
+          para receber mais informações.
+        </h2>
+        <form onSubmit={handleSubscribe}>
+          <input
+            required
+            type="email"
+            placeholder="tinoco@email.com"
+            value={email}
+            onChange={handleInputChange}
+          />
+          <br />
+          <button type="submit">Ok!</button>
+        </form>
+      </section>
     </Container>
   );
 }
