@@ -29,8 +29,8 @@ const Container = styled.section`
     border-radius: 20px;
     background: #f8f8f2;
     color: #494949;
-    font-size: 14px;
-    width: 80%;
+    font-size: 18px;
+    width: 50%;
   }
 
   button {
@@ -59,6 +59,10 @@ const Container = styled.section`
     }
     h2 {
       font-size: 18px;
+    }
+    input {
+      width: 80%;
+      font-size: 14px;
     }
   }
 `;
