@@ -17,17 +17,19 @@ export default function FormSubscription() {
 
     await axios
       .post(
-        'https://us3.api.mailchimp.com/3.0/lists/9315233bb3/members',
+        `https://us3.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`,
         {
           email_address: email,
           status: 'subscribed',
         },
         {
           auth: {
-            username: 'anystring',
-            password: '94b6cbb6aa51e7afb5b7c695d3eccccc-us3',
+            username: process.env.MAILCHIMP_USERNAME,
+            password: process.env.MAILCHIMP_USERNAME,
           },
-          headers: { 'content-type': 'application/json' },
+          headers: {
+            'content-type': 'application/json',
+          },
         }
       )
       .then(response => {
