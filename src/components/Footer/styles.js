@@ -6,7 +6,7 @@ const Container = styled.footer`
   text-align: center;
   padding: 5px 30px;
   color: #f8f8f2;
-  margin-top: 5%;
+  margin-top: 50px;
 
   svg {
     margin-bottom: -2px;
