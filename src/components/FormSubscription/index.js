@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Container from './styles';
 import Alert from '../Alert/styles';
 
@@ -10,8 +11,16 @@ export default function FormSubscription() {
     setEmail(e.target.value);
   }
 
-  function handleSubscribe(e) {
+  async function handleSubscribe(e) {
     e.preventDefault();
+
+    const response = await axios.post(
+      `https://us3.api.mailchimp.com/3.0/lists/subscribe.json
+      ?apikey=94b6cbb6aa51e7afb5b7c695d3eccccc&email[email]=${email}&send_welcome=false`
+    );
+
+    console.log(response.data);
+
     setAlert(true);
     setEmail('');
     setInterval(() => {
