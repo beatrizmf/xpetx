@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 const Container = styled.section`
-  padding: 50px 0;
+  margin: 50px 80px;
   display: grid;
   grid-template-columns: 220px 220px;
-  margin: 0 80px;
+  justify-items: center;
+  justify-content: center;
 
   img {
     width: 200px;
@@ -24,7 +25,7 @@ const Container = styled.section`
 
   @media only screen and (max-width: 700px) {
     grid-template-columns: 180px 180px;
-    margin: 0 5px;
+    margin: 30px 10px;
 
     p {
       font-size: 14px;
