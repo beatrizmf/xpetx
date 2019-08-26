@@ -17,15 +17,15 @@ export default function FormSubscription() {
 
     await axios
       .post(
-        `https://us3.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`,
+        `https://us3.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}/members`,
         {
           email_address: email,
           status: 'subscribed',
         },
         {
           auth: {
-            username: process.env.MAILCHIMP_USERNAME,
-            password: process.env.MAILCHIMP_USERNAME,
+            username: 'anystring',
+            password: process.env.REACT_APP_MAILCHIMP_API_KEY,
           },
           headers: {
             'content-type': 'application/json',
@@ -68,7 +68,7 @@ export default function FormSubscription() {
 
       <section>
         <h2>
-          Deixe o seu melhor e-mail aqui{' '}
+          Deixe o seu melhor e-mail aqui
           <span role="img" aria-label="Mão apontando para baixo">
             👇
           </span>
