@@ -23,12 +23,14 @@ export default function FormSubscription() {
           status: 'subscribed',
         },
         {
-          auth: {
-            username: 'anystring',
-            password: process.env.REACT_APP_MAILCHIMP_API_KEY,
-          },
+          // auth: {
+          //   username: 'anystring',
+          //   password: process.env.REACT_APP_MAILCHIMP_API_KEY,
+          // },
           headers: {
-            'content-type': 'application/json',
+            Authorization: 'OAuth 5e25d04d2a4dd6c808ee803b32ae5845',
+            Accept: 'application/json',
+            // 'Content-Type': 'application/json;charset=utf-8',
           },
         }
       )
