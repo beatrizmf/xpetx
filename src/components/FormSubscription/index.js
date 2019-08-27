@@ -16,27 +16,22 @@ export default function FormSubscription() {
     e.preventDefault();
 
     await axios
-      .post(
-        `https://us3.api.mailchimp.com/3.0/lists/${process.env.REACT_APP_MAILCHIMP_LIST_ID}/members`,
+      .put(
+        'https://api.sendgrid.com/v3/marketing/contacts',
+        { contacts: [{ email }] },
         {
-          email_address: email,
-          status: 'subscribed',
-        },
-        {
-          auth: {
-            username: 'anystring',
-            password: process.env.REACT_APP_MAILCHIMP_API_KEY,
+          headers: {
+            'content-type': 'application/json',
+            Authorization: `Bearer ${process.env.REACT_APP_SENDGRID_API_KEY}`,
           },
         }
       )
-      .then(response => {
+      .then(() => {
         setAlert(true);
         setEmail('');
-        console.log(response);
       })
-      .catch(err => {
+      .catch(() => {
         setAlert(false);
-        console.log(err);
       })
       .finally(() => {
         setshowAlert(true);
